@@ -1,0 +1,89 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "accountName": {
+            "required": true,
+            "type": "string"
+        },
+        "channelName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "allOf": [
+                        {
+                            "description": "The base model for Azure resource",
+                            "properties": {
+                                "id": {
+                                    "description": "The ID of the resource",
+                                    "readOnly": true,
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "The name of the resource",
+                                    "readOnly": true,
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "description": "The fully qualified type of the resource",
+                                    "readOnly": true,
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object",
+                            "x-ms-azure-resource": true
+                        }
+                    ],
+                    "description": "The base model for the proxy-only Azure resource",
+                    "type": "object"
+                }
+            ],
+            "description": "The EngagementFabric channel",
+            "properties": {
+                "properties": {
+                    "description": "The properties of the channel",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "channelFunctions": {
+                            "description": "The functions to be enabled for the channel",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "channelType": {
+                            "description": "The channel type",
+                            "type": "string"
+                        },
+                        "credentials": {
+                            "additionalProperties": {
+                                "type": "string"
+                            },
+                            "description": "The channel credentials",
+                            "type": "object"
+                        }
+                    },
+                    "required": [
+                        "channelType"
+                    ],
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

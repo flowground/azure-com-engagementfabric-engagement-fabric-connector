@@ -1,0 +1,97 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "accountName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "allOf": [
+                {
+                    "allOf": [
+                        {
+                            "description": "The base model for Azure resource",
+                            "properties": {
+                                "id": {
+                                    "description": "The ID of the resource",
+                                    "readOnly": true,
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "The name of the resource",
+                                    "readOnly": true,
+                                    "type": "string"
+                                },
+                                "type": {
+                                    "description": "The fully qualified type of the resource",
+                                    "readOnly": true,
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object",
+                            "x-ms-azure-resource": true
+                        }
+                    ],
+                    "description": "The base model for the tracked Azure resource",
+                    "properties": {
+                        "location": {
+                            "description": "The location of the resource",
+                            "type": "string",
+                            "x-ms-mutability": [
+                                "create",
+                                "read"
+                            ]
+                        },
+                        "sku": {
+                            "description": "The SKU of the resource",
+                            "properties": {
+                                "name": {
+                                    "description": "The name of the SKU",
+                                    "type": "string"
+                                },
+                                "tier": {
+                                    "description": "The price tier of the SKU",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "name"
+                            ],
+                            "type": "object"
+                        },
+                        "tags": {
+                            "additionalProperties": {
+                                "type": "string"
+                            },
+                            "description": "The tags of the resource",
+                            "type": "object"
+                        }
+                    },
+                    "required": [
+                        "location",
+                        "sku"
+                    ],
+                    "type": "object"
+                }
+            ],
+            "description": "The EngagementFabric account",
+            "required": [
+                "location",
+                "sku"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,47 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "accountName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "The parameter to regenerate single EngagementFabric account key",
+            "properties": {
+                "name": {
+                    "description": "The name of key to be regenerated",
+                    "type": "string"
+                },
+                "rank": {
+                    "description": "The rank of the key to be regenerated",
+                    "enum": [
+                        "PrimaryKey",
+                        "SecondaryKey"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                        "modelAsString": true,
+                        "name": "KeyRank"
+                    }
+                }
+            },
+            "required": [
+                "name",
+                "rank"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

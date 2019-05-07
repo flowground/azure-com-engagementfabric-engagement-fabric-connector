@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "The parameter for name availability check",
+            "properties": {
+                "name": {
+                    "description": "The name to be checked",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "The fully qualified resource type for the name to be checked",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "type"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

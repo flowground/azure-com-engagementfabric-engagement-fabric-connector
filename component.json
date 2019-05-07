@@ -1,0 +1,306 @@
+{
+    "title": "EngagementFabric",
+    "description": "Microsoft Customer Engagement Fabric",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/engagementfabric-EngagementFabric/2018-09-01-preview/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "Operations_List": {
+            "main": "./lib/actions/Operations_List.js",
+            "title": "List operation of EngagementFabric resources",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Operations_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Accounts_List": {
+            "main": "./lib/actions/Accounts_List.js",
+            "title": "List the EngagementFabric accounts in given subscription",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Accounts_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SKUs_List": {
+            "main": "./lib/actions/SKUs_List.js",
+            "title": "List available SKUs of EngagementFabric resource",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SKUs_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Accounts_ListByResourceGroup": {
+            "main": "./lib/actions/Accounts_ListByResourceGroup.js",
+            "title": "List EngagementFabric accounts in given resource group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Accounts_ListByResourceGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Accounts_Delete": {
+            "main": "./lib/actions/Accounts_Delete.js",
+            "title": "Delete the EngagementFabric account",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Accounts_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Accounts_Get": {
+            "main": "./lib/actions/Accounts_Get.js",
+            "title": "Get the EngagementFabric account",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Accounts_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Accounts_Update": {
+            "main": "./lib/actions/Accounts_Update.js",
+            "title": "Update EngagementFabric account",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Accounts_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Accounts_CreateOrUpdate": {
+            "main": "./lib/actions/Accounts_CreateOrUpdate.js",
+            "title": "Create or Update the EngagementFabric account",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Accounts_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Channels_ListByAccount": {
+            "main": "./lib/actions/Channels_ListByAccount.js",
+            "title": "List the EngagementFabric channels",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Channels_ListByAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Channels_Delete": {
+            "main": "./lib/actions/Channels_Delete.js",
+            "title": "Delete the EngagementFabric channel",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Channels_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Channels_Get": {
+            "main": "./lib/actions/Channels_Get.js",
+            "title": "Get the EngagementFabric channel",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Channels_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Channels_CreateOrUpdate": {
+            "main": "./lib/actions/Channels_CreateOrUpdate.js",
+            "title": "Create or Update the EngagementFabric channel",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Channels_CreateOrUpdate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Accounts_ListChannelTypes": {
+            "main": "./lib/actions/Accounts_ListChannelTypes.js",
+            "title": "List available EngagementFabric channel types and functions",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Accounts_ListChannelTypes.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Accounts_ListKeys": {
+            "main": "./lib/actions/Accounts_ListKeys.js",
+            "title": "List keys of the EngagementFabric account",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Accounts_ListKeys.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Accounts_RegenerateKey": {
+            "main": "./lib/actions/Accounts_RegenerateKey.js",
+            "title": "Regenerate key of the EngagementFabric account",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Accounts_RegenerateKey.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CheckNameAvailability": {
+            "main": "./lib/actions/CheckNameAvailability.js",
+            "title": "Check availability of EngagementFabric resource",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CheckNameAvailability.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
